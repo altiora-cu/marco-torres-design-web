@@ -180,9 +180,15 @@
   function updateLightbox() {
     const p = catData[lbIndex];
     if (!p) return;
-    $("[data-lb-img]").src = p.img;
-    $("[data-lb-img]").alt = p.nombre;
+    const img = $("[data-lb-img]");
+    // Crossfade suave al cambiar de pieza: desvanece, cambia, y reaparece al cargar.
+    img.style.opacity = "0";
+    img.src = p.img;
+    img.alt = p.nombre;
     $("[data-lb-caption]").textContent = p.nombre;
+    const show = () => { img.style.opacity = "1"; };
+    if (img.complete) show();
+    else img.onload = show;
   }
   function closeLightbox() {
     $("[data-lightbox]").setAttribute("hidden", "");
@@ -253,11 +259,16 @@
     const layer = $("[data-parallax]");
     const media = $(".hero__media");
     if (!layer) return;
-    window.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5);
-      const y = (e.clientY / window.innerHeight - 0.5);
+    let x = 0, y = 0, ticking = false;
+    const apply = () => {
+      ticking = false;
       layer.style.transform = `translate(${x * 14}px, ${y * 10}px)`;
       if (media) media.style.transform = `scale(1.06) translate(${x * -18}px, ${y * -12}px)`;
+    };
+    window.addEventListener("mousemove", (e) => {
+      x = (e.clientX / window.innerWidth - 0.5);
+      y = (e.clientY / window.innerHeight - 0.5);
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
     }, { passive: true });
   }
 
