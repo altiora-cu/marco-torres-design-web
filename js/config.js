@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
     // El hero usa este video de fondo si el archivo existe (FASE 2).
     // Mientras tanto muestra la imagen 'heroPoster'.
     heroVideo: "assets/video/hero.mp4",       // súbelo aquí cuando esté listo
-    heroPoster: "assets/img/hero-bg.webp",      // imagen de respaldo del hero
+    heroPoster: "assets/img/hero-poster.webp",  // primer frame del video hero
   },
 
   /* ---------- CONTACTO ----------
