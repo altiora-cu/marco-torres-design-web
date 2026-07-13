@@ -97,9 +97,7 @@
 
   /* ---------- Hero video (degradación elegante) ---------- */
   function heroVideo() {
-    const media = $(".hero__media");
-    const poster = C.marca?.heroPoster;
-    if (media && poster) media.style.backgroundImage = `url(${poster})`;
+    // Sin foto de fondo: el hero muestra el video, o fondo negro sólido si no reproduce.
     const v = $("[data-hero-video]");
     const src = C.marca?.heroVideo;
     if (!v || !src || reduce) return;
@@ -140,6 +138,15 @@
     $$(".card", grid).forEach((card) => {
       card.addEventListener("click", () => openLightbox(+card.dataset.card));
     });
+    // Si la grilla está visible por defecto (página de catálogo), revela las tarjetas al hacer scroll.
+    if (!grid.hasAttribute("hidden")) {
+      if (reduce) { $$(".card", grid).forEach((c) => c.classList.add("in")); return; }
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }),
+        { threshold: 0.1 }
+      );
+      $$(".card", grid).forEach((c) => io.observe(c));
+    }
   }
 
   function toggleCatalogo() {
@@ -182,11 +189,13 @@
     document.body.style.overflow = "";
   }
   function initLightbox() {
+    const lb = $("[data-lightbox]");
+    if (!lb) return;
     $("[data-close-lightbox]")?.addEventListener("click", closeLightbox);
     $("[data-lb-prev]")?.addEventListener("click", () => { lbIndex = (lbIndex - 1 + catData.length) % catData.length; updateLightbox(); });
     $("[data-lb-next]")?.addEventListener("click", () => { lbIndex = (lbIndex + 1) % catData.length; updateLightbox(); });
     document.addEventListener("keydown", (ev) => {
-      if ($("[data-lightbox]").hasAttribute("hidden")) return;
+      if (lb.hasAttribute("hidden")) return;
       if (ev.key === "Escape") closeLightbox();
       if (ev.key === "ArrowLeft") $("[data-lb-prev]").click();
       if (ev.key === "ArrowRight") $("[data-lb-next]").click();
@@ -196,6 +205,7 @@
   /* ---------- Modal + formulario → WhatsApp ---------- */
   function initModal() {
     const modal = $("[data-modal]");
+    if (!modal) return;
     const open = () => { modal.removeAttribute("hidden"); document.body.style.overflow = "hidden"; };
     const close = () => { modal.setAttribute("hidden", ""); document.body.style.overflow = ""; };
     $$("[data-open-modal]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); open(); }));
@@ -231,6 +241,7 @@
   /* ---------- Nav scrolled ---------- */
   function initNav() {
     const nav = $("#nav");
+    if (!nav) return;
     const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

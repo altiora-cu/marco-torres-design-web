@@ -3,90 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
-  <title>Marcos Torres · Relojes Artesanales de Lujo | Miami</title>
-  <meta name="description" content="Relojes artesanales de lujo hechos a mano en Miami. Piezas únicas y personalizadas que convierten el tiempo en obras de arte." />
+  <title>Catálogo · Marcos Torres · Relojes Artesanales de Lujo</title>
+  <meta name="description" content="La colección completa de relojes artesanales de lujo de Marcos Torres. Piezas únicas y personalizadas hechas a mano en Miami." />
   <meta name="theme-color" content="#0d0b09" />
-  <link rel="canonical" href="https://altiora-cu.github.io/marco-torres-design-web/" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Marcos Torres · Relojes Artesanales de Lujo" />
-  <meta property="og:description" content="Piezas únicas hechas a mano que convierten el tiempo en obras de arte." />
-  <meta property="og:image" content="assets/img/hero-poster.webp" />
-  <meta property="og:locale" content="es_ES" />
-
-  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="catalogo-page">
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <a href="#hero" class="nav__brand" data-brand>Marcos Torres</a>
-    <nav class="nav__links">
-      <a href="#artista">Artista</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="#encargos">Encargos</a>
-      <a href="#" class="nav__cta" data-open-modal>Encargar</a>
-    </nav>
+  <!-- HEADER con opción de volver -->
+  <header class="cat-header">
+    <a href="index.html" class="cat-back" aria-label="Volver al inicio">
+      <span aria-hidden="true">←</span> Volver
+    </a>
+    <a href="index.html" class="nav__brand" data-brand>Marcos Torres</a>
+    <a href="#" class="nav__cta" data-open-modal>Encargar</a>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__media">
-      <video class="hero__video" autoplay muted loop playsinline preload="none" data-hero-video></video>
-      <div class="hero__overlay"></div>
-    </div>
-    <div class="hero__content" data-parallax>
-      <p class="hero__eyebrow" data-subtitulo>Relojes artesanales de lujo</p>
-      <h1 class="hero__title" data-hero-title aria-label="Convirtiendo el tiempo en verdaderas obras de arte">
-        Convirtiendo el tiempo en verdaderas obras de arte
-      </h1>
-      <div class="hero__actions">
-        <a href="#" class="btn btn--gold" data-open-modal>Encargar mi pieza</a>
-        <a href="catalogo.html" class="btn btn--ghost">Ver catálogo</a>
-      </div>
-    </div>
-    <a href="#artista" class="hero__scroll" aria-label="Bajar">⌄</a>
-  </section>
-
-  <!-- ARTISTA -->
-  <section class="artista reveal" id="artista">
-    <div class="artista__grid">
-      <div class="artista__photo">
-        <img data-retrato src="assets/img/marcos-retrato.webp" alt="Marcos Torres, artesano" loading="lazy" />
-      </div>
-      <div class="artista__text">
-        <span class="eyebrow" data-artista-eyebrow>El artesano</span>
-        <h2 data-artista-titulo>El artesano detrás del tiempo</h2>
-        <div data-artista-parrafos></div>
-        <div class="valores" data-valores></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENCARGOS -->
-  <section class="encargos reveal" id="encargos">
+  <!-- COLECCIÓN -->
+  <section class="cat-main">
     <div class="section-head">
-      <span class="eyebrow">Cómo funciona</span>
-      <h2 data-encargos-titulo>Encarga tu pieza única</h2>
-      <p class="section-sub" data-encargos-sub></p>
+      <span class="eyebrow">La colección</span>
+      <h1>Piezas que cuentan historias</h1>
+      <p class="section-sub">Cada reloj es una obra única. Explora todas las creaciones de Marcos.</p>
     </div>
-    <div class="encargos__steps" data-pasos></div>
-    <div class="encargos__cta">
-      <button class="btn btn--gold btn--lg" data-open-modal>Empezar mi encargo</button>
+    <div class="catalogo__grid" data-catalogo></div>
+    <div class="cat-back-wrap">
+      <a href="index.html" class="btn btn--ghost">← Volver al inicio</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" id="contacto">
+  <footer class="footer">
     <div class="footer__brand" data-brand>Marcos Torres</div>
     <p class="footer__tag">Relojes artesanales de lujo · <span data-ciudad>Miami, Florida</span></p>
     <div class="footer__links" data-social></div>
@@ -124,6 +75,17 @@
         <p class="form__note">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
       </form>
     </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" data-lightbox hidden>
+    <button class="lightbox__close" data-close-lightbox aria-label="Cerrar">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label="Anterior">‹</button>
+    <figure class="lightbox__figure">
+      <img data-lb-img src="" alt="" />
+      <figcaption data-lb-caption></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" data-lb-next aria-label="Siguiente">›</button>
   </div>
 
   <script src="js/config.js"></script>
