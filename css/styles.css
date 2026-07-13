@@ -15,7 +15,7 @@
   --radius: 14px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --maxw: 1200px;
   --pad: clamp(1.25rem, 5vw, 4rem);
 }
