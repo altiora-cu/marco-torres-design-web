@@ -30,7 +30,7 @@ window.SITE_CONFIG = {
 
   /* ---------- SOBRE EL ARTISTA ---------- */
   artista: {
-    titulo: "El artesano detrás del tiempo",
+    titulo: "El artesano\ndetrás del tiempo",
     retrato: "assets/img/marcos-retrato.webp",
     parrafos: [
       "Marcos Torres transforma la madera y el tiempo en piezas únicas. Cada reloj nace a mano, pensado para contar una historia: la tuya.",
