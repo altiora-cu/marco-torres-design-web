@@ -106,8 +106,9 @@
     const src = isMobile && mobileSrc ? mobileSrc : C.marca?.heroVideo;
     if (!src) return;
     const portrait = src === mobileSrc;
-    // Solo intenta cargar el video si el archivo existe
-    fetch(src, { method: "HEAD" })
+    // Difiere la carga del video hasta que el contenido crítico ya pintó,
+    // para no competir por ancho de banda y no frenar el FCP/LCP.
+    const load = () => fetch(src, { method: "HEAD" })
       .then((r) => {
         if (!r.ok) return;
         const s = document.createElement("source");
@@ -120,6 +121,10 @@
         v.play().catch(() => {});
       })
       .catch(() => {});
+    // Arranca la carga tras el evento load (o de inmediato si ya cargó), en tiempo ocioso.
+    const defer = () => (window.requestIdleCallback || ((cb) => setTimeout(cb, 200)))(load);
+    if (document.readyState === "complete") defer();
+    else window.addEventListener("load", defer, { once: true });
   }
 
   /* ---------- Catálogo ---------- */
@@ -132,7 +137,7 @@
         (p, i) => `
       <article class="card" data-card="${i}">
         <div class="card__zoom">⤢</div>
-        <div class="card__img"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" /></div>
+        <div class="card__img"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" decoding="async" /></div>
         <div class="card__body">
           <span class="card__cat">${p.categoria || ""}</span>
           <h3 class="card__title">${p.nombre}</h3>
@@ -308,7 +313,7 @@
         <div class="plate__art">
           <span class="spotlight" aria-hidden="true"></span>
           <figure class="frame" data-card="${i}" tabindex="0" role="button" aria-label="Ver ${p.nombre}">
-            <div class="frame__mat"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" /></div>
+            <div class="frame__mat"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" decoding="async" /></div>
           </figure>
           <span class="plinth" aria-hidden="true"></span>
         </div>
