@@ -160,6 +160,19 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 }
 @keyframes bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
+/* En teléfono el video (16:9) se muestra COMPLETO como franja arriba (sin recortar los relojes),
+   y el texto va debajo sobre un degradado oscuro para máxima legibilidad. */
+@media (max-width: 620px) {
+  .hero { justify-content: flex-end; padding-top: 5rem; padding-bottom: 4.5rem; }
+  .hero__video { object-fit: contain; object-position: center 26%; }
+  .hero__overlay {
+    background: linear-gradient(to bottom,
+      transparent 0%, transparent 42%,
+      rgba(13,11,9,0.55) 62%, rgba(13,11,9,0.85) 80%, var(--bg) 98%);
+  }
+  .hero__content { padding-bottom: 1rem; }
+}
+
 /* ---------- Secciones layout ---------- */
 section { padding: clamp(4.5rem, 12vw, 9rem) var(--pad); max-width: var(--maxw); margin-inline: auto; }
 .hero, .footer { max-width: none; }
