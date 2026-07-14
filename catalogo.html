@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo · Marcos Torres · Relojes Artesanales de Lujo</title>
-  <meta name="description" content="La colección completa de relojes artesanales de lujo de Marcos Torres. Piezas únicas y personalizadas hechas a mano en Miami." />
+  <title>La Exposición · Marcos Torres · Relojes Artesanales de Lujo</title>
+  <meta name="description" content="La colección completa de relojes artesanales de lujo de Marcos Torres, presentada como una exposición de galería. Piezas únicas hechas a mano en Miami." />
   <meta name="theme-color" content="#0d0b09" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="catalogo-page">
+<body class="catalogo-page gallery">
+
+  <!-- Textura de grano / film (fija, no interactiva) -->
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- HEADER con opción de volver -->
   <header class="cat-header">
@@ -23,18 +26,21 @@
     <a href="#" class="nav__cta" data-open-modal>Encargar</a>
   </header>
 
-  <!-- COLECCIÓN -->
-  <section class="cat-main">
-    <div class="section-head">
-      <span class="eyebrow">La colección</span>
-      <h1>Piezas que cuentan historias</h1>
-      <p class="section-sub">Cada reloj es una obra única. Explora todas las creaciones de Marcos.</p>
-    </div>
-    <div class="catalogo__grid" data-catalogo></div>
-    <div class="cat-back-wrap">
-      <a href="index.html" class="btn btn--ghost">← Volver al inicio</a>
-    </div>
+  <!-- INTRO DE LA EXPOSICIÓN -->
+  <section class="exhibit-intro">
+    <span class="eyebrow">La Exposición</span>
+    <h1 class="exhibit-title">La Colección</h1>
+    <p class="exhibit-lead">Nueve piezas únicas, hechas a mano. Cada reloj es una obra — recórrelas como en una galería.</p>
+    <div class="exhibit-meta">IX Piezas · Edición única · Miami</div>
+    <span class="exhibit-rule" aria-hidden="true"></span>
   </section>
+
+  <!-- SALA DE EXPOSICIÓN (render por JS) -->
+  <section class="exhibit" data-gallery></section>
+
+  <div class="cat-back-wrap">
+    <a href="index.html" class="btn btn--ghost">← Volver al inicio</a>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">

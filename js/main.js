@@ -292,12 +292,43 @@
     document.head.appendChild(s);
   }
 
+  /* ---------- Galería / Exposición (catalogo.html) ---------- */
+  const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
+  function renderGallery() {
+    const wrap = $("[data-gallery]");
+    if (!wrap) return;
+    wrap.innerHTML = catData.map((p, i) => `
+      <article class="plate reveal ${i % 2 ? "plate--right" : ""}" style="transition-delay:${(i % 2) * 60}ms">
+        <div class="plate__art">
+          <span class="spotlight" aria-hidden="true"></span>
+          <figure class="frame" data-card="${i}" tabindex="0" role="button" aria-label="Ver ${p.nombre}">
+            <div class="frame__mat"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" /></div>
+          </figure>
+          <span class="plinth" aria-hidden="true"></span>
+        </div>
+        <div class="plate__label">
+          <span class="plate__num">${ROMAN[i] || i + 1}</span>
+          <span class="eyebrow">${p.categoria || ""}</span>
+          <h2 class="plate__name">${p.nombre}</h2>
+          <p class="plate__desc">${p.descripcion || ""}</p>
+          <div class="plate__meta">Pieza única · Hecha a mano</div>
+          <button class="plate__cta" data-open-modal>Solicitar esta pieza →</button>
+        </div>
+      </article>`).join("");
+    $$(".frame", wrap).forEach((f) => {
+      const open = () => openLightbox(+f.dataset.card);
+      f.addEventListener("click", open);
+      f.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    });
+  }
+
   /* ---------- Init ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     fillText();
     splitTitle();
     heroVideo();
     renderCatalogo();
+    renderGallery();
     toggleCatalogo();
     initLightbox();
     initModal();
