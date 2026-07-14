@@ -121,10 +121,8 @@
         v.play().catch(() => {});
       })
       .catch(() => {});
-    // Arranca la carga tras el evento load (o de inmediato si ya cargó), en tiempo ocioso.
-    const defer = () => (window.requestIdleCallback || ((cb) => setTimeout(cb, 200)))(load);
-    if (document.readyState === "complete") defer();
-    else window.addEventListener("load", defer, { once: true });
+    // Difiere ~350ms tras el arranque para no competir con el render crítico (FCP/LCP).
+    setTimeout(load, 350);
   }
 
   /* ---------- Catálogo ---------- */
