@@ -14,7 +14,8 @@ window.SITE_CONFIG = {
     subtitulo: "Relojes artesanales de lujo",
     // El hero usa este video de fondo si el archivo existe (FASE 2).
     // Mientras tanto muestra la imagen 'heroPoster'.
-    heroVideo: "assets/video/hero.mp4",       // súbelo aquí cuando esté listo
+    heroVideo: "assets/video/hero.mp4",        // versión horizontal (desktop)
+    heroVideoMobile: "assets/video/hero-mobile.mp4", // versión vertical (teléfono)
     heroPoster: "assets/img/hero-poster.webp",  // primer frame del video hero
   },
 

@@ -99,8 +99,13 @@
   function heroVideo() {
     // Sin foto de fondo: el hero muestra el video, o fondo negro sólido si no reproduce.
     const v = $("[data-hero-video]");
-    const src = C.marca?.heroVideo;
-    if (!v || !src || reduce) return;
+    if (!v || reduce) return;
+    // En teléfono usa la versión vertical (llena la pantalla); en desktop la horizontal.
+    const isMobile = window.matchMedia("(max-width: 620px)").matches;
+    const mobileSrc = C.marca?.heroVideoMobile;
+    const src = isMobile && mobileSrc ? mobileSrc : C.marca?.heroVideo;
+    if (!src) return;
+    const portrait = src === mobileSrc;
     // Solo intenta cargar el video si el archivo existe
     fetch(src, { method: "HEAD" })
       .then((r) => {
@@ -110,6 +115,7 @@
         s.type = "video/mp4";
         v.appendChild(s);
         v.load();
+        if (portrait) { const hero = $(".hero"); if (hero) hero.classList.add("hero--portrait"); }
         v.addEventListener("loadeddata", () => v.classList.add("ready"));
         v.play().catch(() => {});
       })
