@@ -34,7 +34,7 @@ body {
   cursor: url("../assets/img/cursor.png") 16 16, auto;
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 
 /* ---------- Tipografía base ---------- */
