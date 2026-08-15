@@ -125,7 +125,7 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 }
 .hero__video.ready { opacity: 1; }
 .hero__media {
-  background: #efeae1 center/cover no-repeat;
+  background: #efeae1 url("../assets/img/hero-bg.webp") center/cover no-repeat;
 }
 .hero__overlay {
   position: absolute; inset: 0;

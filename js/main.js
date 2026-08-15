@@ -108,19 +108,21 @@
     const portrait = src === mobileSrc;
     // Difiere la carga del video hasta que el contenido crítico ya pintó,
     // para no competir por ancho de banda y no frenar el FCP/LCP.
-    const load = () => fetch(src, { method: "HEAD" })
-      .then((r) => {
-        if (!r.ok) return;
-        const s = document.createElement("source");
-        s.src = src;
-        s.type = "video/mp4";
-        v.appendChild(s);
-        v.load();
-        if (portrait) { const hero = $(".hero"); if (hero) hero.classList.add("hero--portrait"); }
-        v.addEventListener("loadeddata", () => v.classList.add("ready"));
-        v.play().catch(() => {});
-      })
-      .catch(() => {});
+    // Se asigna el video directamente: el HEAD con fetch fallaba al abrir el
+    // sitio como archivo local (file://) y dejaba el hero vacio.
+    const load = () => {
+      const s = document.createElement("source");
+      s.src = src;
+      s.type = "video/mp4";
+      v.appendChild(s);
+      v.load();
+      if (portrait) { const hero = $(".hero"); if (hero) hero.classList.add("hero--portrait"); }
+      v.addEventListener("loadeddata", () => v.classList.add("ready"));
+      // Si el video no puede reproducirse, el poster de fondo queda visible.
+      v.addEventListener("error", () => v.classList.remove("ready"));
+      const play = v.play();
+      if (play && play.catch) play.catch(() => {});
+    };
     // Difiere ~350ms tras el arranque para no competir con el render crítico (FCP/LCP).
     setTimeout(load, 350);
   }
