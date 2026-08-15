@@ -105,7 +105,6 @@
     const mobileSrc = C.marca?.heroVideoMobile;
     const src = isMobile && mobileSrc ? mobileSrc : C.marca?.heroVideo;
     if (!src) return;
-    const portrait = src === mobileSrc;
     // Difiere la carga del video hasta que el contenido crítico ya pintó,
     // para no competir por ancho de banda y no frenar el FCP/LCP.
     // Se asigna el video directamente: el HEAD con fetch fallaba al abrir el
@@ -116,10 +115,26 @@
       s.type = "video/mp4";
       v.appendChild(s);
       v.load();
-      if (portrait) { const hero = $(".hero"); if (hero) hero.classList.add("hero--portrait"); }
-      v.addEventListener("loadeddata", () => v.classList.add("ready"));
+      // El archivo movil no es necesariamente vertical (hoy hero-mobile.mp4 es
+      // 16:9). Se decide por las dimensiones reales, no por cual archivo cargo:
+      // asi el dia que exista un hero vertical se activa solo.
+      v.addEventListener("loadedmetadata", () => {
+        if (v.videoHeight > v.videoWidth) {
+          const hero = $(".hero");
+          if (hero) hero.classList.add("hero--portrait");
+        }
+      }, { once: true });
+      v.addEventListener("loadeddata", () => {
+        v.classList.add("ready");
+        const hero = $(".hero");
+        if (hero) hero.classList.add("hero--video-ready");
+      });
       // Si el video no puede reproducirse, el poster de fondo queda visible.
-      v.addEventListener("error", () => v.classList.remove("ready"));
+      v.addEventListener("error", () => {
+        v.classList.remove("ready");
+        const hero = $(".hero");
+        if (hero) hero.classList.remove("hero--video-ready");
+      });
       const play = v.play();
       if (play && play.catch) play.catch(() => {});
     };

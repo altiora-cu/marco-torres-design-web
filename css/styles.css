@@ -201,6 +201,17 @@ body:not(.catalogo-page) .nav:not(.scrolled) .nav__cta:hover {
   /* Fallback (video horizontal): muéstralo completo como franja arriba, texto abajo. */
   .hero { justify-content: flex-end; padding-top: 5rem; padding-bottom: 4.5rem; }
   .hero__video { object-fit: contain; object-position: center 26%; }
+  /* El poster es 16:9 y con `cover` en pantalla 9:16 la pieza se sale por la
+     izquierda. Se reencuadra para que el reloj quede en cuadro mientras carga
+     el video. */
+  .hero__media { background-position: 36% center; }
+  /* Con el video ya cargado se muestra como franja completa: el poster debajo
+     mostraria la misma escena en otro encuadre (reloj duplicado), asi que la
+     franja pasa a apoyarse en fondo oscuro solido. */
+  .hero--video-ready .hero__media {
+    background-image: none;
+    background-color: #14100a;
+  }
   .hero__overlay {
     background: linear-gradient(to bottom,
       rgba(26, 20, 13, 0.55) 0%, rgba(26, 20, 13, 0.30) 38%,
