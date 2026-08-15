@@ -109,6 +109,19 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   .nav__links a:not(.nav__cta) { display: none; }
 }
 
+/* Sobre el hero oscuro (home, antes de hacer scroll) el nav va en claro.
+   Al hacer scroll vuelve a .nav.scrolled sobre fondo crema con sus colores originales. */
+body:not(.catalogo-page) .nav:not(.scrolled) .nav__brand { color: #f6f1e8; }
+body:not(.catalogo-page) .nav:not(.scrolled) .nav__links a { color: rgba(246, 241, 232, 0.82); }
+body:not(.catalogo-page) .nav:not(.scrolled) .nav__links a:hover { color: var(--gold-soft); }
+body:not(.catalogo-page) .nav:not(.scrolled) .nav__cta {
+  border-color: var(--gold-soft);
+  color: var(--gold-soft) !important;
+}
+body:not(.catalogo-page) .nav:not(.scrolled) .nav__cta:hover {
+  background: var(--gold-soft); color: #1a140a !important;
+}
+
 /* ---------- HERO ---------- */
 .hero {
   position: relative; min-height: 100svh;
@@ -120,23 +133,39 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; opacity: 0;
-  filter: brightness(1.2) saturate(1.05);
+  filter: brightness(0.62) saturate(1.1) contrast(1.08);
   transition: opacity 1.2s var(--ease);
 }
 .hero__video.ready { opacity: 1; }
 .hero__media {
-  background: #efeae1 url("../assets/img/hero-bg.webp") center/cover no-repeat;
+  background: #1a140d url("../assets/img/hero-bg.webp") center/cover no-repeat;
+}
+/* El póster se oscurece con su propio background (no con filter):
+   el video y el overlay son hijos y heredarían el filtro. */
+.hero__media::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(26, 20, 13, 0.38);
 }
 .hero__overlay {
   position: absolute; inset: 0;
   background:
-    radial-gradient(125% 95% at 50% 22%, transparent 48%, rgba(250, 247, 242, 0.4) 80%, var(--bg) 100%),
-    linear-gradient(to bottom, rgba(250, 247, 242, 0.32), rgba(250, 247, 242, 0.18) 45%, var(--bg) 97%);
+    /* Viñeta: protege los bordes y deja respirar el centro donde está la pieza. */
+    radial-gradient(115% 80% at 50% 40%,
+      rgba(26, 20, 13, 0) 26%,
+      rgba(26, 20, 13, 0.38) 66%,
+      rgba(26, 20, 13, 0.72) 100%),
+    /* Vertical: oscuro arriba para el nav, y más denso abajo bajo el titular. */
+    linear-gradient(to bottom,
+      rgba(26, 20, 13, 0.66) 0%,
+      rgba(26, 20, 13, 0.42) 26%,
+      rgba(26, 20, 13, 0.52) 58%,
+      rgba(26, 20, 13, 0.74) 100%);
 }
 .hero__content { position: relative; z-index: 2; max-width: 920px; width: 100%; will-change: transform; }
 .hero__eyebrow {
   font-size: clamp(0.6rem, 2.4vw, 0.74rem); letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.8rem;
+  color: var(--gold-soft); margin-bottom: 1.8rem;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
 }
 .hero__title {
   font-family: var(--serif);
@@ -153,9 +182,15 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 .hero__title .char { display: inline-block; }
 @keyframes heroTitleIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 .hero__actions { margin-top: 2.6rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+/* El botón fantasma usa tinta oscura; sobre el hero necesita ir en claro. */
+.hero__actions .btn--ghost {
+  border-color: rgba(246, 241, 232, 0.45); color: #f6f1e8;
+  backdrop-filter: blur(2px);
+}
+.hero__actions .btn--ghost:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
 .hero__scroll {
   position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
-  z-index: 2; font-size: 1.6rem; color: var(--gold);
+  z-index: 2; font-size: 1.6rem; color: var(--gold-soft);
   animation: bob 2.4s ease-in-out infinite;
 }
 @keyframes bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
@@ -168,8 +203,8 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   .hero__video { object-fit: contain; object-position: center 26%; }
   .hero__overlay {
     background: linear-gradient(to bottom,
-      transparent 0%, transparent 42%,
-      rgba(250, 247, 242, 0.55) 62%, rgba(250, 247, 242, 0.85) 80%, var(--bg) 98%);
+      rgba(26, 20, 13, 0.55) 0%, rgba(26, 20, 13, 0.30) 38%,
+      rgba(26, 20, 13, 0.72) 62%, rgba(26, 20, 13, 0.88) 82%, rgba(26, 20, 13, 0.94) 100%);
   }
   .hero__content { padding-bottom: 1rem; }
 
@@ -178,8 +213,11 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   .hero--portrait .hero__video { object-fit: cover; object-position: center; }
   .hero--portrait .hero__overlay {
     background:
-      radial-gradient(120% 90% at 50% 24%, transparent 44%, rgba(250, 247, 242, 0.45) 78%, var(--bg) 100%),
-      linear-gradient(to bottom, rgba(250, 247, 242, 0.25), rgba(250, 247, 242, 0.12) 45%, var(--bg) 97%);
+      radial-gradient(120% 90% at 50% 34%,
+        rgba(26, 20, 13, 0) 24%, rgba(26, 20, 13, 0.40) 66%, rgba(26, 20, 13, 0.75) 100%),
+      linear-gradient(to bottom,
+        rgba(26, 20, 13, 0.60) 0%, rgba(26, 20, 13, 0.38) 30%,
+        rgba(26, 20, 13, 0.52) 62%, rgba(26, 20, 13, 0.78) 100%);
   }
   .hero--portrait .hero__content { padding-bottom: 0; }
 }
