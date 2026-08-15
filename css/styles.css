@@ -6,7 +6,7 @@
   --bg: #faf7f2;
   --bg-2: #f2ede4;
   --bg-3: #e8e0d3;
-  --gold: #a67c2e;
+  --gold: #8a6520;
   --gold-soft: #c9a45c;
   --gold-deep: #8a651f;
   --text: #23201b;
@@ -398,7 +398,7 @@ section { padding: clamp(4.5rem, 12vw, 9rem) var(--pad); max-width: var(--maxw);
 .frame:hover, .frame:focus-visible { transform: translateY(-5px);
   border-color: rgba(201,164,92,0.5);
   box-shadow: 0 56px 104px -46px rgba(0,0,0,0.95), 0 0 0 1px rgba(201,164,92,0.14), inset 0 1px 0 rgba(255,255,255,0.06); }
-.frame__mat { border: 1px solid rgba(201,164,92,0.16); border-radius: 3px; overflow: hidden; background: #000; }
+.frame__mat { border: 1px solid rgba(138,101,31,0.22); border-radius: 3px; overflow: hidden; background: #efeae1; }
 .frame__mat img { display: block; width: 100%; height: auto; }
 .plinth { display: block; width: 62%; max-width: 300px; height: 34px; margin-top: 4px;
   background: radial-gradient(50% 100% at 50% 0%, rgba(0,0,0,0.55), transparent 72%); }
