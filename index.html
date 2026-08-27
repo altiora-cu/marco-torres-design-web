@@ -17,6 +17,10 @@
   <meta property="og:image" content="assets/img/hero-poster.webp" />
   <meta property="og:locale" content="es_ES" />
 
+  <!-- El poster del hero es lo primero que se ve: se pide con prioridad para que
+       el banner nunca aparezca en negro mientras el video (mucho mas pesado) llega. -->
+  <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high" />
+
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

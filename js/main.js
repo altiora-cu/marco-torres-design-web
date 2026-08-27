@@ -105,6 +105,11 @@
     const mobileSrc = C.marca?.heroVideoMobile;
     const src = isMobile && mobileSrc ? mobileSrc : C.marca?.heroVideo;
     if (!src) return;
+    // En conexion lenta o con ahorro de datos activado no se descarga el video:
+    // medio mega tarda casi un minuto a 20 KB/s y ademas frena el resto del
+    // sitio. Se queda el poster del hero, que es un fotograma del mismo banner.
+    const con = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (con && (con.saveData || /(^|-)2g$/.test(con.effectiveType || ""))) return;
     // Difiere la carga del video hasta que el contenido crítico ya pintó,
     // para no competir por ancho de banda y no frenar el FCP/LCP.
     // Se asigna el video directamente: el HEAD con fetch fallaba al abrir el
