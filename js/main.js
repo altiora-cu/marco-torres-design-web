@@ -328,7 +328,7 @@
         <div class="plate__art">
           <span class="spotlight" aria-hidden="true"></span>
           <figure class="frame" data-card="${i}" tabindex="0" role="button" aria-label="Ver ${p.nombre}">
-            <div class="frame__mat"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" decoding="async" /></div>
+            <div class="frame__mat"><img src="${p.thumb}" alt="${p.nombre}" loading="lazy" decoding="async" width="560" height="700" /></div>
           </figure>
           <span class="plinth" aria-hidden="true"></span>
         </div>

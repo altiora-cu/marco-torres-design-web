@@ -25,7 +25,7 @@ window.SITE_CONFIG = {
   contacto: {
     whatsapp: "17862414630",                   // +1 (786) 241-4630 · Miami
     email: "marcos880729@icloud.com",          // email de contacto de Marcos
-    instagram: "artesaniacuba_oficial",        // sin @
+    instagram: "markidesign_",                 // sin @ · instagram.com/markidesign_
     ciudad: "Miami, Florida",
   },
 
@@ -53,63 +53,63 @@ window.SITE_CONFIG = {
     {
       nombre: "Cuba — Tiempo y Madera",
       categoria: "Edición limitada",
-      descripcion: "El mapa de Cuba tallado en madera sobre fondo negro. Un homenaje a la raíz, hecho a mano.",
+      descripcion: "La isla recortada en madera sobre disco negro mate, con el XII y el VI en dorado. Para quien lleva Cuba de memoria.",
       img: "assets/img/cuba.webp",
       thumb: "assets/thumbs/cuba.webp",
     },
     {
       nombre: "Café — Ritual de la Mañana",
       categoria: "Serie Sabores",
-      descripcion: "Granos de café reales embebidos en resina, madera de roble y una cafetera que parece flotar.",
+      descripcion: "Granos de café tostado fijados sobre la esfera negra, con la cafetera y la taza montadas en la tabla de roble. El desayuno entero, hecho reloj.",
       img: "assets/img/cafe.webp",
       thumb: "assets/thumbs/cafe.webp",
     },
     {
       nombre: "Piano de Cola",
       categoria: "Serie Música",
-      descripcion: "Un piano de cola en negro laca con teclado real. Convirtiendo el tiempo en obras de arte.",
+      descripcion: "La silueta de un piano de cola en negro laca, con las teclas talladas una a una en el borde inferior. Para quien tiene música en casa.",
       img: "assets/img/piano.webp",
       thumb: "assets/thumbs/piano.webp",
     },
     {
       nombre: "Mascota Personalizada",
       categoria: "Personalizado",
-      descripcion: "La silueta de tu mascota con su nombre. Un recuerdo eterno del mejor compañero.",
+      descripcion: "Su silueta recortada a partir de tu foto, con el nombre en dorado sobre el pecho. En esta pieza, Paris.",
       img: "assets/img/mascota.webp",
       thumb: "assets/thumbs/mascota.webp",
     },
     {
       nombre: "Médico — Diseños que Cuentan Historias",
       categoria: "Regalo profesional",
-      descripcion: "Estetoscopio real y dedicatoria personalizada. El regalo perfecto para celebrar una carrera.",
+      descripcion: "Un estetoscopio real recorre la esfera y la dedicatoria va grabada en el corazón de nácar. Se hace con el nombre y la fecha que nos des.",
       img: "assets/img/medico.webp",
       thumb: "assets/thumbs/medico.webp",
     },
     {
       nombre: "Aniversario — Favorite Time",
       categoria: "Personalizado",
-      descripcion: "Un mensaje grabado para esa persona. Porque sigue siendo tu momento favorito.",
+      descripcion: "Disco negro partido por una franja clara con la dedicatoria grabada, y a cada lado un símbolo de la pareja. Se personaliza entero.",
       img: "assets/img/aniversario.webp",
       thumb: "assets/thumbs/aniversario.webp",
     },
     {
       nombre: "Clutch de Gala",
       categoria: "Serie Moda",
-      descripcion: "Un bolso de fiesta convertido en reloj, con cadena dorada. Elegancia que marca la hora.",
+      descripcion: "Un bolso de fiesta con cierre de boquilla dorado, colgado de su propia cadena. Índices y manecillas en dorado sobre negro.",
       img: "assets/img/cartera.webp",
       thumb: "assets/thumbs/cartera.webp",
     },
     {
       nombre: "La Hora de la Cena",
       categoria: "Serie Sabores",
-      descripcion: "Madera natural y un tenedor suspendido en el aire. Arte cinético para tu mesa.",
+      descripcion: "Un tenedor real hace de manecilla sobre un disco de nogal, servido en su bandeja de madera. Pensado para la cocina o el comedor.",
       img: "assets/img/tenedor.webp",
       thumb: "assets/thumbs/tenedor.webp",
     },
     {
       nombre: "Colaboración Zarova Vodka",
       categoria: "Colaboraciones de marca",
-      descripcion: "Pieza de exhibición creada para Zarova Vodka. Branding de lujo hecho a mano.",
+      descripcion: "Expositor de travertino con arco negro y esfera dorada, creado por encargo para Zarova Vodka. Ejemplo del trabajo para marcas.",
       img: "assets/img/zarova.webp",
       thumb: "assets/thumbs/zarova.webp",
     },
