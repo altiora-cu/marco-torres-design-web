@@ -20,8 +20,9 @@ window.SITE_CONFIG = {
   },
 
   /* ---------- CONTACTO ----------
-     ⚠️ REEMPLAZA con los datos reales de Marcos.
-     El teléfono va con código de país y SIN símbolos: 1305XXXXXXX */
+     Datos reales de Marcos, ya en uso: alimentan el boton flotante de WhatsApp,
+     el formulario de encargos, el pie de pagina y la ficha de negocio de Google.
+     Si algun dia cambia el telefono: con codigo de pais y SIN simbolos. */
   contacto: {
     whatsapp: "17862414630",                   // +1 (786) 241-4630 · Miami
     email: "marcos880729@icloud.com",          // email de contacto de Marcos
@@ -131,6 +132,6 @@ window.SITE_CONFIG = {
   seo: {
     titulo: "Marcos Torres · Relojes Artesanales de Lujo | Miami",
     descripcion: "Relojes artesanales de lujo hechos a mano en Miami. Piezas únicas y personalizadas que convierten el tiempo en obras de arte.",
-    url: "https://altiora-cu.github.io/marco-torres-design-web/", // ⚠️ se ajusta al publicar
+    url: "https://altiora-cu.github.io/marco-torres-design-web/", // el sitio publicado; cambiar si se pone dominio propio
   },
 };
