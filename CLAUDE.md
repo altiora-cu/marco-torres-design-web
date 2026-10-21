@@ -9,7 +9,7 @@ Instrucciones para cualquier sesión de Claude que trabaje en este repositorio.
 
 Sitio web comercial de **Marcos Torres Estévez**, artista plástico y artesano cubano
 radicado en Miami que crea relojes artesanales de lujo por encargo. Cliente de la
-agencia de Frank Gregory (Fase 1 de su plan de negocios).
+agencia Mirai Digital Group (Fase 1 del plan de negocios de Frank).
 
 - **Publicado en:** https://altiora-cu.github.io/marco-torres-design-web/
 - **Repo:** `altiora-cu/marco-torres-design-web` · GitHub Pages desde `main`, raíz `/`
@@ -79,7 +79,8 @@ El método probado: generar un clip por toma + puentes de cámara anclados frame
 Ver `../FLUJO-AGENCIA-WEB-PREMIUM.md` para el proceso completo.
 
 **Antes de dar algo por terminado:**
-- Abrir `index.html` con doble clic y confirmar que carga (prueba de `file://`)
+- Abrir `index.html` con doble clic y confirmar que carga (prueba de `file://`, la hace Frank)
+- Claude revisa con `preview_start marcos-web` (puerto 8123): el panel del navegador no abre `file://`
 - Revisar en 375px de ancho, no solo en escritorio
 - Verificar contraste si tocaste colores (mínimo WCAG AA 4.5:1 en texto normal)
 

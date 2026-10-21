@@ -89,7 +89,7 @@ Espera 1–2 minutos y abre con **Cmd+Shift+R** (recarga forzada, salta el cach�
 **Cambiar un texto, el contacto o agregar una pieza:** editar `js/config.js`.
 Es el único archivo que toca el contenido.
 
-**Ver el sitio antes de publicar:** doble clic en `index.html`.
+**Ver el sitio antes de publicar:** doble clic en `index.html` (Frank) o `preview_start marcos-web` (Claude, puerto 8123).
 
 ---
 
