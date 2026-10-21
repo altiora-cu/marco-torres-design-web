@@ -15,6 +15,7 @@ Responde HTTP 200. Todos los commits están subidos (`main` sincronizado con `or
 | Área | Estado |
 |---|---|
 | **Banner hero** | Video de museo, 593 KB desktop / 538 KB móvil. No recorta en teléfono. |
+| **Titular hero** | «Convirtiendo el tiempo en obras de arte» (pedido de Marcos 11/10, publicado 20/10). Se edita en `marca.tagline` de `config.js`. |
 | **Paleta** | Dark premium artesanal (#0d0b09 + dorado #c9a45c) |
 | **Catálogo** | 13 piezas publicadas, en `catalogo.html` + galería en portada |
 | **Sección artista** | Retrato + bio de Marcos. Foto estirada: corregida |
@@ -46,6 +47,18 @@ Responde HTTP 200. Todos los commits están subidos (`main` sincronizado con `or
       ni de hacer retargeting a quien visitó sin encargar.
 - [ ] **Testimonios** — tiene clientes de peso (Marc Anthony, CRM Jewelers) pero
       no hay testimonios escritos en el sitio. Es prueba social desaprovechada.
+
+---
+
+## 🗓️ Última sesión (20/10/2026)
+
+- Documentación `CLAUDE.md` + `ESTADO.md` creada y subida.
+- Titular del hero cambiado según audio de Marcos; `main.js` ahora lo lee de `config.js`
+  (antes estaba quemado en `index.html`). Publicado en `9c226b8`.
+- Preview local: `preview_start marcos-web` (puerto 8123, launch.json de la carpeta raíz;
+  symlink `~/Documents/claude code/marcos-torres-web`). `file://` no sirve para el panel.
+- Decisión abierta: la línea pequeña sobre el titular (ver pendientes). En móvil se lee mal
+  sobre el mapa dorado; puede ser el motivo del pedido.
 
 ---
 
