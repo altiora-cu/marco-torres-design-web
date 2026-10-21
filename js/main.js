@@ -76,6 +76,10 @@
   function splitTitle() {
     const el = $("[data-hero-title]");
     if (!el) return;
+    if (C.marca?.tagline) {
+      el.textContent = C.marca.tagline;
+      el.setAttribute("aria-label", C.marca.tagline);
+    }
     const words = el.textContent.trim().split(/\s+/);
     el.textContent = "";
     let i = 0;

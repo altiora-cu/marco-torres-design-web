@@ -29,6 +29,9 @@ Responde HTTP 200. Todos los commits están subidos (`main` sincronizado con `or
 ## 📋 Pendientes
 
 ### Para el cliente
+- [ ] **Texto encima del titular** — en el audio del 11/10 Marcos pidió cambiar también lo que
+      está encima de «Convirtiendo el tiempo en obras de arte» (hoy «Relojes artesanales de lujo»,
+      en `marca.subtitulo`), pero no dijo a qué. Preguntarle.
 - [ ] **Facebook** — falta la URL exacta del perfil de Marcos (no está en `config.js`)
 - [ ] **Dominio propio** — hoy corre en `github.io`. Un `.com` propio sube la
       percepción de marca y mejora el SEO. Costo ~$12/año.

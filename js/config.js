@@ -10,7 +10,7 @@ window.SITE_CONFIG = {
   /* ---------- MARCA ---------- */
   marca: {
     nombre: "Marcos Torres",
-    tagline: "Convirtiendo el tiempo en arte",
+    tagline: "Convirtiendo el tiempo en obras de arte",
     subtitulo: "Relojes artesanales de lujo",
     // El hero usa este video de fondo si el archivo existe (FASE 2).
     // Mientras tanto muestra la imagen 'heroPoster'.
