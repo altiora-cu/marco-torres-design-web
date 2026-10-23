@@ -132,6 +132,12 @@ console.log("\nPortada · escritorio 1440");
     const pieza = await pagina.textContent("#vista-nombre");
     afirmar(C.catalogo.some((p) => p.nombre === pieza && p.historia === "Familia"), "pieza parecida: " + pieza);
   });
+  await prueba("B11 lo que escribe el visitante nunca se inyecta como HTML", async () => {
+    await pagina.fill("#nota", '<img src=x onerror="window.__xss=1">');
+    const r = await pagina.evaluate(() => ({ img: !!document.querySelector("#vista-msg img"), xss: !!window.__xss, txt: document.querySelector("#vista-msg").textContent }));
+    afirmar(!r.img && !r.xss && r.txt.includes("<img"), JSON.stringify(r));
+    await pagina.fill("#nota", "");
+  });
   await prueba("B6 la vitrina abre la pieza y su CTA lleva su nombre", async () => {
     await pagina.evaluate(() => document.querySelector("[data-abrir='0']").click());
     afirmar(await pagina.$eval("#vitrina", (d) => d.open), "la vitrina no abrió");
