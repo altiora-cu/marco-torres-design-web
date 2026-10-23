@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- SEO -->
   <title>Marcos Torres · Relojes Artesanales de Lujo | Miami</title>
@@ -17,121 +17,174 @@
   <meta property="og:image" content="assets/img/hero-poster.webp" />
   <meta property="og:locale" content="es_ES" />
 
-  <!-- El poster del hero es lo primero que se ve: se pide con prioridad para que
-       el banner nunca aparezca en negro mientras el video (mucho mas pesado) llega. -->
+  <!-- El fondo del hero es lo primero que se ve: se pide con prioridad para que
+       el banner nunca aparezca en negro mientras el video (mucho más pesado) llega. -->
   <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high" />
 
-  <!-- Fuentes -->
+  <!-- Fuentes: no bloquean la primera pintura -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" /></noscript>
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" /></noscript>
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <a class="saltar" href="#sala" data-t="portada.ctaSecundario">Recorrer la sala</a>
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <a href="#hero" class="nav__brand" data-brand>Marcos Torres</a>
-    <nav class="nav__links">
-      <a href="#artista">Artista</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="#encargos">Encargos</a>
-      <a href="#" class="nav__cta" data-open-modal>Encargar</a>
-    </nav>
-  </header>
+  <!-- ISLA DE NAVEGACIÓN -->
+  <nav class="isla" aria-label="Principal">
+    <a class="isla__marca" href="#inicio" data-t="marca.nombre">Marcos Torres</a>
+    <!-- Texto de respaldo para que la isla no salte; JS lo repinta desde config.js -->
+    <div class="isla__links" data-menu><a href="#sala">La sala</a><a href="#tu-reloj">Tu reloj</a><a href="#redes">Redes</a></div>
+    <a class="btn btn--oro btn--sm" href="#tu-reloj" data-wa="encargo" data-t="menu.cta">Encargar pieza</a>
+    <button class="isla__menu" type="button" aria-expanded="false" aria-controls="telon">
+      <span class="sr-only" data-t="menu.abrir"></span><i></i><i></i>
+    </button>
+  </nav>
+  <div class="telon" id="telon" hidden>
+    <ul data-menu-telon></ul>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__media">
-      <video class="hero__video" autoplay muted loop playsinline preload="none" data-hero-video></video>
-      <div class="hero__overlay"></div>
-    </div>
-    <div class="hero__content" data-parallax>
-      <p class="hero__eyebrow" data-subtitulo>Relojes artesanales de lujo</p>
-      <h1 class="hero__title" data-hero-title aria-label="Convirtiendo el tiempo en obras de arte">
-        Convirtiendo el tiempo en obras de arte
-      </h1>
-    </div>
-    <a href="#artista" class="hero__scroll" aria-label="Bajar">⌄</a>
-  </section>
-
-  <!-- BOTONES -->
-  <section class="cta-band reveal" aria-label="Acciones principales">
-    <button class="btn btn--gold btn--lg" data-open-modal>Encargar mi pieza</button>
-    <a href="catalogo.html" class="btn btn--ghost btn--lg">Ver catálogo</a>
-  </section>
-
-  <!-- ARTISTA -->
-  <section class="artista reveal" id="artista">
-    <div class="artista__grid">
-      <div class="artista__photo">
-        <img data-retrato src="assets/img/marcos-retrato.webp" alt="Marcos Torres, artesano" loading="lazy" decoding="async" width="1600" height="2133" />
+  <main id="contenido">
+    <!-- HERO -->
+    <header class="hero" id="inicio">
+      <div class="hero__fondo" aria-hidden="true">
+        <video class="hero__video" muted loop playsinline preload="none"></video>
       </div>
-      <div class="artista__text">
-        <span class="eyebrow" data-artista-eyebrow>El artesano</span>
-        <h2 data-artista-titulo>El artesano detrás del tiempo</h2>
+      <div class="hero__velo" aria-hidden="true"></div>
+      <div class="hero__texto">
+        <p class="hero__ceja" data-t="marca.subtitulo">Relojes artesanales de lujo</p>
+        <h1 data-t="marca.tagline" data-acento="marca.taglineAcento">Convirtiendo el tiempo en obras de arte</h1>
+        <p class="hero__sub" data-t="marca.heroTexto">Relojes de pared y de mesa hechos a mano en Miami, en madera, resina, acrílico y metal, con la historia de quien los encarga.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--oro" href="#tu-reloj" data-wa="encargo"><span data-t="portada.ctaPrincipal">Encargar pieza</span> <span class="btn__ico" aria-hidden="true">↗</span></a>
+          <a class="btn btn--linea" href="#sala" data-t="portada.ctaSecundario">Recorrer la sala</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- LA SALA (catálogo como pasillo de museo) -->
+    <section class="sala" id="sala" aria-labelledby="sala-t">
+      <div class="sala__cabeza" data-aparece>
+        <h2 id="sala-t" data-t="portada.salaTitulo"></h2>
+        <p data-t="portada.salaTexto"></p>
+      </div>
+      <div class="sala__pin">
+        <div class="sala__suelo" aria-hidden="true"></div>
+        <ol class="sala__pista" id="pista"></ol>
+      </div>
+      <nav class="plano" aria-label="Plano de la sala">
+        <ol id="plano"></ol>
+        <a class="btn btn--linea btn--sm" href="catalogo.html" data-t="portada.salaCompleta"></a>
+      </nav>
+    </section>
+
+    <!-- EL ARTESANO -->
+    <section class="artista" id="artista" aria-labelledby="artista-t">
+      <figure class="artista__retrato" data-aparece>
+        <span class="artista__luz" aria-hidden="true"></span>
+        <img data-retrato alt="" width="900" height="1200" loading="lazy" decoding="async" />
+      </figure>
+      <div class="artista__texto" data-aparece>
+        <p class="ceja" data-t="artista.eyebrow"></p>
+        <h2 id="artista-t" data-t="artista.titulo"></h2>
         <div data-artista-parrafos></div>
-        <div class="valores" data-valores></div>
+        <dl class="valores" data-valores></dl>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ENCARGOS -->
-  <section class="encargos reveal" id="encargos">
-    <div class="section-head">
-      <span class="eyebrow">Cómo funciona</span>
-      <h2 data-encargos-titulo>Encarga tu pieza única</h2>
-      <p class="section-sub" data-encargos-sub></p>
-    </div>
-    <div class="encargos__steps" data-pasos></div>
-    <div class="encargos__cta">
-      <button class="btn btn--gold btn--lg" data-open-modal>Empezar mi encargo</button>
-    </div>
-  </section>
+    <!-- ENCARGOS + TU RELOJ -->
+    <section class="encargo" id="tu-reloj" aria-labelledby="encargo-t">
+      <div class="encargo__cabeza" data-aparece>
+        <p class="ceja" data-t="encargos.eyebrow"></p>
+        <h2 id="encargo-t" data-t="encargos.titulo"></h2>
+        <p data-t="encargos.subtitulo"></p>
+      </div>
+      <ol class="pasos" data-pasos></ol>
 
-  <!-- FOOTER -->
-  <footer class="footer" id="contacto">
-    <div class="footer__brand" data-brand>Marcos Torres</div>
-    <p class="footer__tag">Relojes artesanales de lujo · <span data-ciudad>Miami, Florida</span></p>
-    <div class="footer__links" data-social></div>
-    <p class="footer__legal">© <span data-year></span> Marcos Torres. Todas las piezas son únicas y hechas a mano.</p>
+      <div class="constructor">
+        <div class="constructor__form">
+          <h3 data-t="tuReloj.titulo"></h3>
+          <p class="constructor__intro" data-t="tuReloj.intro"></p>
+          <div data-preguntas></div>
+          <label class="nota" for="nota"><span data-t="tuReloj.notaEtiqueta"></span> <small data-t="tuReloj.notaOpcional"></small></label>
+          <textarea id="nota" rows="2"></textarea>
+        </div>
+        <aside class="constructor__vista" aria-live="polite">
+          <div class="vista__arco"><img id="vista-img" alt="" width="592" height="740" loading="lazy" decoding="async" /></div>
+          <p class="vista__ref"><span data-t="tuReloj.piezaParecida"></span> <b id="vista-nombre"></b></p>
+          <div class="vista__mensaje"><span data-t="tuReloj.mensajeEtiqueta"></span><p id="vista-msg"></p></div>
+          <a class="btn btn--oro btn--ancho" href="#tu-reloj" id="vista-cta" data-t="tuReloj.cta"></a>
+          <p class="vista__nota" data-t="tuReloj.nota"></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="redes" id="redes" aria-labelledby="redes-t">
+      <div class="redes__cabeza" data-aparece>
+        <h2 id="redes-t" data-t="instagram.titulo"></h2>
+        <p data-t="instagram.texto"></p>
+        <div class="redes__cuentas" data-cuentas></div>
+      </div>
+      <div class="redes__pared">
+        <ol class="carril" id="reels"></ol>
+        <div class="carril__flechas">
+          <button type="button" data-carril="-1"><span aria-hidden="true">←</span><span class="sr-only" data-t="instagram.anterior"></span></button>
+          <button type="button" data-carril="1"><span aria-hidden="true">→</span><span class="sr-only" data-t="instagram.siguiente"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="cierre" aria-labelledby="cierre-t">
+      <h2 id="cierre-t" data-t="portada.cierreTitulo" data-acento="portada.cierreAcento" data-aparece></h2>
+      <a class="btn btn--oro" href="#tu-reloj" data-wa="encargo"><span data-t="portada.cierreCta"></span> <span class="btn__ico" aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <!-- PIE -->
+  <footer class="pie" id="contacto">
+    <p class="pie__marca" data-t="marca.nombre">Marcos Torres</p>
+    <p class="pie__tag"><span data-t="pie.tag"></span> · <span data-t="contacto.ciudad"></span></p>
+    <div class="pie__links" data-social></div>
+    <p class="pie__legal">© <span data-year></span> <span data-t="pie.legal"></span></p>
   </footer>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="#" class="wa-float" data-whatsapp-direct aria-label="Escribir por WhatsApp">
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.6 1.4 5.6 1.4h.2c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.6-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4.9-.4h.6c.2 0 .5 0 .7.5s.9 2.1.9 2.3c.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s2 .9 2.3 1.1c.3.2.5.2.6.4.1.1.1.8-.2 1.6z"/></svg>
+  <a href="#tu-reloj" class="wa-flotante" data-wa="flotante" data-aria="menu.whatsapp">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.6 1.4 5.6 1.4h.2c6.6 0 12-5.4 12-12S22.6 3 16 3zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.6-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4.9-.4h.6c.2 0 .5 0 .7.5s.9 2.1.9 2.3c.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2s2 .9 2.3 1.1c.3.2.5.2.6.4.1.1.1.8-.2 1.6z"/></svg>
   </a>
 
-  <!-- MODAL DE ENCARGO -->
-  <div class="modal" data-modal hidden>
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__box" role="dialog" aria-modal="true" aria-label="Encargar una pieza">
-      <button class="modal__close" data-close-modal aria-label="Cerrar">×</button>
-      <h3 class="modal__title">Encarga tu pieza única</h3>
-      <p class="modal__sub">Cuéntame tu idea y te respondo por WhatsApp con una propuesta.</p>
-      <form data-form class="form">
-        <div class="form__row">
-          <label>Nombre<input name="nombre" required autocomplete="name" /></label>
+  <!-- VITRINA (detalle de una pieza) -->
+  <dialog class="vitrina" id="vitrina" aria-labelledby="v-nombre">
+    <div class="vitrina__caja">
+      <div class="vitrina__obra" id="v-obra">
+        <img id="v-img" alt="" width="800" height="1000" decoding="async" />
+        <span class="vitrina__brillo" aria-hidden="true"></span>
+      </div>
+      <div class="vitrina__ficha">
+        <p class="vitrina__serie" id="v-serie"></p>
+        <h3 id="v-nombre"></h3>
+        <p class="vitrina__sub" id="v-sub"></p>
+        <p id="v-texto"></p>
+        <dl>
+          <div><dt data-t="vitrina.formato"></dt><dd id="v-tipo"></dd></div>
+          <div><dt data-t="vitrina.materiales"></dt><dd id="v-mat"></dd></div>
+        </dl>
+        <div class="vitrina__ctas">
+          <a class="btn btn--oro" href="#tu-reloj" id="v-cta" data-t="vitrina.cta"></a>
+          <a class="btn btn--linea" href="#tu-reloj" id="v-parecida" data-t="vitrina.parecida"></a>
         </div>
-        <div class="form__row form__row--2">
-          <label>País<input name="pais" autocomplete="country-name" /></label>
-          <label>Estado / Ciudad<input name="estado" /></label>
-        </div>
-        <div class="form__row form__row--2">
-          <label>Teléfono<input name="telefono" type="tel" autocomplete="tel" /></label>
-          <label>Email<input name="email" type="email" autocomplete="email" /></label>
-        </div>
-        <div class="form__row">
-          <label>Tu idea<textarea name="idea" rows="3" placeholder="Ej: un reloj con la silueta de mi perro, o el mapa de mi país…" required></textarea></label>
-        </div>
-        <button type="submit" class="btn btn--gold btn--block">Enviar por WhatsApp</button>
-        <p class="form__note">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
-      </form>
+      </div>
+      <div class="vitrina__nav">
+        <button type="button" id="v-prev" data-aria="vitrina.anterior">←</button>
+        <button type="button" id="v-next" data-aria="vitrina.siguiente">→</button>
+        <button type="button" id="v-cerrar" data-t="vitrina.cerrar"></button>
+      </div>
     </div>
-  </div>
+  </dialog>
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
