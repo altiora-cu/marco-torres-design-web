@@ -30,6 +30,8 @@ agencia Mirai Digital Group (Fase 1 del plan de negocios de Frank).
    texto #f2ece1, serif Cormorant Garamond + sans Hanken Grotesk.
    Hubo un intento de pasar el sitio a paleta clara (crema) y **se revirtió** —
    el cliente prefiere el oscuro. No la vuelvas a cambiar sin pedirlo.
+   Sobre esa paleta, desde el 23/10/2026 la dirección de arte es la **A «La sala nocturna»** con el constructor
+   «Tu reloj» (rama `rediseno-sala-nocturna`, pendiente de aprobación de Frank). Prototipos en `../propuestas-diseno-2026-10/`.
 
 4. **Nada de `fetch()` para cargar assets locales.** Rompe al abrir el sitio con
    doble clic (`file://`) y deja el hero vacío. Ya pasó una vez. Asigna los `src`
@@ -52,16 +54,17 @@ agencia Mirai Digital Group (Fase 1 del plan de negocios de Frank).
 
 ```
 marco-torres-design-web/
-├── index.html          # Portada: hero, artista, encargos, contacto
-├── catalogo.html       # Galería completa de piezas
+├── index.html          # Portada «La sala nocturna»: hero, sala (pasillo 3D), artesano, Tu reloj, reels, cierre
+├── catalogo.html       # La colección completa (rejilla + vitrina)
 ├── css/styles.css      # Design tokens arriba (:root), luego secciones
-├── js/config.js        # ⭐ TODO el contenido editable
-├── js/main.js          # Render del contenido + interacciones
-├── assets/video/       # hero.mp4 (desktop) · hero-mobile.mp4
-├── assets/img/         # Fotos de piezas, retrato, póster, cursor
+├── js/config.js        # ⭐ TODO el contenido editable (también Tu reloj, reels y mensajes de WhatsApp)
+├── js/main.js          # Render del contenido + interacciones (GSAP se carga diferido desde cdnjs, con SRI)
+├── tests/sitio.test.mjs# Pruebas con Playwright (ver abajo)
+├── robots.txt · sitemap.xml
+├── assets/video/       # hero.mp4 (desktop) · hero-mobile.mp4 (vertical)
+├── assets/img/         # Fotos de piezas, retrato (900 + 600 px), fondo del hero
 └── deploy.sh           # Publicación en GitHub Pages
 ```
-
 ---
 
 ## Cómo se trabaja aquí
@@ -83,6 +86,11 @@ Ver `../FLUJO-AGENCIA-WEB-PREMIUM.md` para el proceso completo.
 - Claude revisa con `preview_start marcos-web` (puerto 8123): el panel del navegador no abre `file://`
 - Revisar en 375px de ancho, no solo en escritorio
 - Verificar contraste si tocaste colores (mínimo WCAG AA 4.5:1 en texto normal)
+- Correr las pruebas: `NODE_PATH=<node_modules con playwright> node tests/sitio.test.mjs` (usa el Chrome del equipo
+  si no hay Chromium de Playwright). Cubren 375 px exactos, reels diferidos, Tu reloj → wa.me, pie AA, CLS y movimiento reducido.
+- Si añades un tercero (script, fuente, iframe), añádelo a la CSP del `<meta http-equiv>` de las dos páginas o se bloqueará.
+- Un `.sr-only` o cualquier `position: absolute` dentro de un carril desplazable necesita un ancestro `position: relative`
+  DENTRO del carril; si no, se escapa del recorte y ensancha la página (pasó: 2270 px a 375).
 
 **Para publicar:** `git push` (GitHub Pages se actualiza solo en 1-2 min).
 Después abrir con **Cmd+Shift+R** — el CSS viejo queda en caché.

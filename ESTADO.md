@@ -1,5 +1,5 @@
 # ESTADO DEL PROYECTO — Marcos Torres Design
-**Actualizado:** 23 de octubre, 2026
+**Actualizado:** 23 de octubre, 2026 (rama `rediseno-sala-nocturna`)
 
 ---
 
@@ -20,7 +20,7 @@ Responde HTTP 200, pero Frank no lo da por terminado. Marcos es cliente **a camb
 | **Paleta** | Dark premium artesanal (#0d0b09 + dorado #c9a45c) |
 | **Catálogo** | 8 piezas publicadas, en `catalogo.html` + galería en portada (la pieza «Médico» se retiró el 23/10: la foto mostraba el nombre completo de una clienta) |
 | **Sección artista** | Retrato + bio de Marcos. Foto estirada: corregida |
-| **Encargos** | Proceso por pasos + formulario → WhatsApp |
+| **Encargos** | Proceso por pasos + formulario → WhatsApp (en la rama nueva: constructor «Tu reloj» → WhatsApp) |
 | **Contacto real** | WhatsApp +1 (786) 241-4630 · marcos880729@icloud.com · @markidesign_ |
 | **SEO** | Title, descripción y URL canónica configurados |
 | **Rendimiento** | Banner 3× más liviano, no bloquea en conexión lenta |
@@ -88,7 +88,26 @@ de colaboración (`clientes/legal/2026-10-22-marcos-torres-acuerdo-colaboracion.
 
 ---
 
-## 🗓️ Última sesión (20/10/2026)
+## 🗓️ Última sesión (23/10/2026) — rediseño construido en rama, SIN publicar
+
+**Rama `rediseno-sala-nocturna`** (local, sin push; `main` conserva la versión publicada). Commits pequeños desde `0571007`.
+- Dirección A «La sala nocturna» llevada al sitio real: isla de navegación, hero con video diferido sobre fondo de respaldo,
+  pasillo 3D fijado con GSAP (solo escritorio, cargado en reposo desde cdnjs con SRI), plano de la sala, vitrina,
+  sección del artesano, pasos + constructor **«Tu reloj»** (abre `wa.me` con el mensaje armado), pared con los **7 reels**
+  (embed oficial, `embed.js` solo al entrar la sección en pantalla, sin pie de foto) y catálogo nuevo.
+- El formulario modal antiguo (nombre, país, teléfono, email) se retiró: lo sustituye «Tu reloj».
+- Todo el contenido nuevo está en `js/config.js`. La pieza de travertino ya no nombra la marca (texto ni archivo).
+- Auditoría corregida: CLS del catálogo 0,65 → 0,00 (respaldo de fuentes con `size-adjust` + hueco reservado), retrato
+  467 KB → 87 KB (+ versión de 600 px), contraste del pie ≥ 4,5:1, enlaces del pie de 44 px, línea sobre el titular a 13 px.
+- Lighthouse móvil local: portada 100/100/96/100 (LCP 1,8 s, CLS 0,002); catálogo 100/100/96/100 (LCP 1,6 s, CLS 0).
+- CSP y Referrer-Policy por `<meta>`, favicon en línea, `og:image` absoluta + `twitter:card`, `robots.txt`, `sitemap.xml`.
+- Pruebas: `tests/sitio.test.mjs`, 32/32 en verde (cómo correrlas en CLAUDE.md).
+
+**Falta para publicar:** que Frank lo vea en pantalla (preview `marcos-web`, puerto 8123) y con doble clic, Safari/iPhone
+real, su aprobación, y el merge + push (lo hace Frank). Legal: el reel 1 (`DW0AnY9jZOf`) enseña una botella de licor de
+marca, igual que la foto de travertino.
+
+## 🗓️ Sesión anterior (20/10/2026)
 
 - Documentación `CLAUDE.md` + `ESTADO.md` creada y subida.
 - Titular del hero cambiado según audio de Marcos; `main.js` ahora lo lee de `config.js`
