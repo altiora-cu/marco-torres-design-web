@@ -92,9 +92,12 @@ Después abrir con **Cmd+Shift+R** — el CSS viejo queda en caché.
 ## Contexto del cliente
 
 Marcos trabaja con maderas finas, resinas, acrílicos y metales. Diseños 100% propios,
-sin plantillas ni réplicas en serie. Ha hecho piezas para **Marc Anthony**,
-**Ariel Joyería** y **Carlos Marcelin (CRM Jewelers)** — eso es prueba social fuerte,
-úsalo en el copy cuando aplique.
+sin plantillas ni réplicas en serie. Dice haber hecho piezas para
+Marc Anthony, Ariel Joyería y Carlos Marcelin (CRM Jewelers). **Ninguno de esos nombres
+se publica (web, redes, anuncios, caso de estudio) sin el permiso escrito firmado de cada uno**
+(anexo D del acuerdo de colaboración; ley de Florida §540.08). Ese permiso lo consigue y lo
+entrega Marcos, no Mirai. Bloqueo de Legal del 22/10/2026. Tampoco nombres ni datos de sus
+clientes particulares en fotos o textos (por eso se retiró la pieza «Médico» el 23/10).
 
 Su diferenciador real: integra la identidad del cliente en la pieza (sus raíces,
 pasiones, el mapa de su país). No vende relojes, vende historias convertidas en objeto.
