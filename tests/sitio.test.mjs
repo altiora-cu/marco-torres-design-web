@@ -23,7 +23,8 @@ const ctx = { window: {} };
 vm.runInNewContext(leer("js/config.js"), ctx);
 const C = ctx.window.SITE_CONFIG;
 
-const REELS = ["DW0AnY9jZOf", "DVcjmtpjdeN", "DZGgNONt_h0", "DG1hiiGp74R", "Dag1ZEZNCZd", "DXSpXS3Df6K", "DdVEAPOtJJF"]
+// DW0AnY9jZOf retirado el 23/10/2026 hasta que Legal decida (botella de licor de marca)
+const REELS = ["DVcjmtpjdeN", "DZGgNONt_h0", "DG1hiiGp74R", "Dag1ZEZNCZd", "DXSpXS3Df6K", "DdVEAPOtJJF"]
   .map((c) => `https://www.instagram.com/reel/${c}/`);
 
 let ok = 0, mal = 0;
@@ -86,7 +87,7 @@ await prueba("S4 sin nombres bloqueados por Legal, sin «Médico», sin «Marco�
   const prohibido = [/Marc Anthony/i, /CRM/, /Ariel/i, /Zarova/i, /Carlos Marcelin/i, /M[ée]dico/i, /\bMarco\b/, /\bwatch(es)?\b/i];
   for (const f of fuentes) for (const re of prohibido) afirmar(!re.test(leer(f)), f + " contiene " + re);
 });
-await prueba("S5 config.js trae los 7 reels elegidos, en orden", () => {
+await prueba("S5 config.js trae los reels elegidos, en orden", () => {
   const urls = (C.instagram && C.instagram.reels || []).map((r) => r.url || r);
   afirmar(JSON.stringify(urls) === JSON.stringify(REELS), "reels: " + JSON.stringify(urls));
 });
@@ -145,9 +146,9 @@ console.log("\nPortada · escritorio 1440");
     afirmar(decodeURIComponent(href).includes(C.catalogo[0].nombre), href);
     await pagina.keyboard.press("Escape");
   });
-  await prueba("B4 al llegar a Redes: embed.js una vez y los 7 reels sin pie de foto", async () => {
+  await prueba("B4 al llegar a Redes: embed.js una vez y los reels sin pie de foto", async () => {
     await pagina.locator("#redes").scrollIntoViewIfNeeded();
-    await pagina.waitForFunction(() => document.querySelectorAll("blockquote.instagram-media").length === 7, null, { timeout: 5000 });
+    await pagina.waitForFunction((n) => document.querySelectorAll("blockquote.instagram-media").length === n, REELS.length, { timeout: 5000 });
     const datos = await pagina.$$eval("blockquote.instagram-media", (b) => b.map((x) => ({ p: x.dataset.instgrmPermalink, cap: x.hasAttribute("data-instgrm-captioned") })));
     datos.forEach((d, i) => afirmar(d.p.startsWith(REELS[i]), "reel " + i + ": " + d.p));
     afirmar(datos.every((d) => !d.cap), "algún reel lleva pie de foto");

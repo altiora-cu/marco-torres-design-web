@@ -273,7 +273,7 @@
     if (pedida) elegir("historia", pedida);
   }
 
-  /* ---------- Instagram: 7 reels, embed oficial al entrar en pantalla ---------- */
+  /* ---------- Instagram: reels, embed oficial al entrar en pantalla ---------- */
   function instagram() {
     const I = C.instagram, carril = $("#reels"), seccion = $("#redes");
     if (!I || !carril) return;

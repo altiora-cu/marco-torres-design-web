@@ -223,7 +223,7 @@ window.SITE_CONFIG = {
      Sin pie de foto a propósito: el texto del reel podría nombrar a clientes. */
   instagram: {
     titulo: "El taller, colgado en Instagram",
-    texto: "Siete reels del taller, colgados como en una sala. Se cargan desde Instagram al llegar aquí.",
+    texto: "Reels del taller, colgados como en una sala. Se cargan desde Instagram al llegar aquí.",
     cargando: "Cargando el reel…",
     verEnInstagram: "Ver el reel en Instagram",
     anterior: "Reel anterior",
@@ -233,7 +233,7 @@ window.SITE_CONFIG = {
       { usuario: "marki_marki_88", etiqueta: "Cuenta personal" },
     ],
     reels: [
-      "https://www.instagram.com/reel/DW0AnY9jZOf/",
+      // "https://www.instagram.com/reel/DW0AnY9jZOf/",  retirado 23/10/2026 hasta que Legal decida (botella de licor de marca)
       "https://www.instagram.com/reel/DVcjmtpjdeN/",
       "https://www.instagram.com/reel/DZGgNONt_h0/",
       "https://www.instagram.com/reel/DG1hiiGp74R/",

@@ -34,7 +34,7 @@ preview `marcos-propuestas`, puerto 8131). B queda para una segunda fase; la pal
 Se construye en archivos nuevos en paralelo, sin sobrescribir la versión actual hasta que Frank apruebe.
 
 **Reels elegidos por Frank para las ventanas de Instagram** (embed oficial, `embed.js` solo al entrar en pantalla):
-- https://www.instagram.com/reel/DW0AnY9jZOf/
+- ~~https://www.instagram.com/reel/DW0AnY9jZOf/~~ — **retirado del sitio el 23/10** hasta que Legal decida (botella de licor de marca)
 - https://www.instagram.com/reel/DVcjmtpjdeN/
 - https://www.instagram.com/reel/DZGgNONt_h0/
 - https://www.instagram.com/reel/DG1hiiGp74R/
@@ -103,9 +103,9 @@ de colaboración (`clientes/legal/2026-10-22-marcos-torres-acuerdo-colaboracion.
 - CSP y Referrer-Policy por `<meta>`, favicon en línea, `og:image` absoluta + `twitter:card`, `robots.txt`, `sitemap.xml`.
 - Pruebas: `tests/sitio.test.mjs`, 32/32 en verde (cómo correrlas en CLAUDE.md).
 
-**Falta para publicar:** que Frank lo vea en pantalla (preview `marcos-web`, puerto 8123) y con doble clic, Safari/iPhone
-real, su aprobación, y el merge + push (lo hace Frank). Legal: el reel 1 (`DW0AnY9jZOf`) enseña una botella de licor de
-marca, igual que la foto de travertino.
+**Publicado el 23/10/2026** con la aprobación de Frank (merge de `rediseno-sala-nocturna` a `main`). Revisado en pantalla
+por el CEO a 757 px y 375 px. Falta probar en Safari / iPhone real. El reel `DW0AnY9jZOf` quedó fuera (comentado en
+`config.js`) hasta que Legal decida sobre la marca de licor, igual que la foto de travertino.
 
 ## 🗓️ Sesión anterior (20/10/2026)
 
