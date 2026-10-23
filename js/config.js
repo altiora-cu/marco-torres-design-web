@@ -80,13 +80,6 @@ window.SITE_CONFIG = {
       thumb: "assets/thumbs/mascota.webp",
     },
     {
-      nombre: "Médico — Diseños que Cuentan Historias",
-      categoria: "Regalo profesional",
-      descripcion: "Un estetoscopio real recorre la esfera y la dedicatoria va grabada en el corazón de nácar. Se hace con el nombre y la fecha que nos des.",
-      img: "assets/img/medico.webp",
-      thumb: "assets/thumbs/medico.webp",
-    },
-    {
       nombre: "Aniversario — Favorite Time",
       categoria: "Personalizado",
       descripcion: "Disco negro partido por una franja clara con la dedicatoria grabada, y a cada lado un símbolo de la pareja. Se personaliza entero.",
