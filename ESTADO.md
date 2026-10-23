@@ -88,12 +88,12 @@ de colaboración (`clientes/legal/2026-10-22-marcos-torres-acuerdo-colaboracion.
 
 ---
 
-## 🗓️ Última sesión (23/10/2026) — rediseño construido en rama, SIN publicar
+## 🗓️ Última sesión (22–23/10/2026) — rediseño PUBLICADO (`0d6020d`)
 
 **Rama `rediseno-sala-nocturna`** (local, sin push; `main` conserva la versión publicada). Commits pequeños desde `0571007`.
 - Dirección A «La sala nocturna» llevada al sitio real: isla de navegación, hero con video diferido sobre fondo de respaldo,
   pasillo 3D fijado con GSAP (solo escritorio, cargado en reposo desde cdnjs con SRI), plano de la sala, vitrina,
-  sección del artesano, pasos + constructor **«Tu reloj»** (abre `wa.me` con el mensaje armado), pared con los **7 reels**
+  sección del artesano, pasos + constructor **«Tu reloj»** (abre `wa.me` con el mensaje armado), pared con los **reels** (6 publicados)
   (embed oficial, `embed.js` solo al entrar la sección en pantalla, sin pie de foto) y catálogo nuevo.
 - El formulario modal antiguo (nombre, país, teléfono, email) se retiró: lo sustituye «Tu reloj».
 - Todo el contenido nuevo está en `js/config.js`. La pieza de travertino ya no nombra la marca (texto ni archivo).
@@ -106,6 +106,16 @@ de colaboración (`clientes/legal/2026-10-22-marcos-torres-acuerdo-colaboracion.
 **Publicado el 23/10/2026** con la aprobación de Frank (merge de `rediseno-sala-nocturna` a `main`). Revisado en pantalla
 por el CEO a 757 px y 375 px. Falta probar en Safari / iPhone real. El reel `DW0AnY9jZOf` quedó fuera (comentado en
 `config.js`) hasta que Legal decida sobre la marca de licor, igual que la foto de travertino.
+Comprobado en el sitio publicado: portada, catálogo, `robots.txt` y `sitemap.xml` dan 200; `medico.webp` da 404.
+Pruebas: `NODE_PATH=~/.npm/_npx/e41f203b7505f1fb/node_modules node tests/sitio.test.mjs` (sin `NODE_PATH` no encuentra
+Playwright) → 32/32. La rama `rediseno-sala-nocturna` ya está fusionada; se puede borrar.
+
+**Siguiente sesión — empezar por aquí:**
+1. Respuestas de Marcos a las 9 preguntas (ver Pendientes) → `mirai:ventas` arma la ficha de servicios del anexo A
+   del acuerdo (catálogo `agencia` de FG OS, valor de referencia; no se cobra).
+2. Decisiones de Frank sobre el acuerdo → `mirai:legal` cierra el borrador → abogado de Florida + CPA antes de firmar.
+3. Alta de Marcos en FG OS (la hace Frank). Sin id no hay encargo.
+4. Probar en un iPhone real. Luego: dominio propio, privacidad, 404, versión en inglés (*clock*, nunca *watch*).
 
 ## 🗓️ Sesión anterior (20/10/2026)
 
