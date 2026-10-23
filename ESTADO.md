@@ -1,5 +1,5 @@
 # ESTADO DEL PROYECTO — Marcos Torres Design
-**Actualizado:** 23 de octubre, 2026 (rama `rediseno-sala-nocturna`)
+**Actualizado:** 23 de octubre, 2026 (en `main`, rediseño publicado en `0d6020d`)
 
 ---
 
@@ -20,7 +20,7 @@ Responde HTTP 200, pero Frank no lo da por terminado. Marcos es cliente **a camb
 | **Paleta** | Dark premium artesanal (#0d0b09 + dorado #c9a45c) |
 | **Catálogo** | 8 piezas publicadas, en `catalogo.html` + galería en portada (la pieza «Médico» se retiró el 23/10: la foto mostraba el nombre completo de una clienta) |
 | **Sección artista** | Retrato + bio de Marcos. Foto estirada: corregida |
-| **Encargos** | Proceso por pasos + formulario → WhatsApp (en la rama nueva: constructor «Tu reloj» → WhatsApp) |
+| **Encargos** | Proceso por pasos + constructor «Tu reloj» → WhatsApp |
 | **Contacto real** | WhatsApp +1 (786) 241-4630 · marcos880729@icloud.com · @markidesign_ |
 | **SEO** | Title, descripción y URL canónica configurados |
 | **Rendimiento** | Banner 3× más liviano, no bloquea en conexión lenta |
@@ -90,7 +90,7 @@ de colaboración (`clientes/legal/2026-10-22-marcos-torres-acuerdo-colaboracion.
 
 ## 🗓️ Última sesión (22–23/10/2026) — rediseño PUBLICADO (`0d6020d`)
 
-**Rama `rediseno-sala-nocturna`** (local, sin push; `main` conserva la versión publicada). Commits pequeños desde `0571007`.
+Trabajado en la rama `rediseno-sala-nocturna` (commits pequeños desde `0571007`), fusionada a `main` y borrada el 23/10.
 - Dirección A «La sala nocturna» llevada al sitio real: isla de navegación, hero con video diferido sobre fondo de respaldo,
   pasillo 3D fijado con GSAP (solo escritorio, cargado en reposo desde cdnjs con SRI), plano de la sala, vitrina,
   sección del artesano, pasos + constructor **«Tu reloj»** (abre `wa.me` con el mensaje armado), pared con los **reels** (6 publicados)
@@ -108,7 +108,7 @@ por el CEO a 757 px y 375 px. Falta probar en Safari / iPhone real. El reel `DW0
 `config.js`) hasta que Legal decida sobre la marca de licor, igual que la foto de travertino.
 Comprobado en el sitio publicado: portada, catálogo, `robots.txt` y `sitemap.xml` dan 200; `medico.webp` da 404.
 Pruebas: `NODE_PATH=~/.npm/_npx/e41f203b7505f1fb/node_modules node tests/sitio.test.mjs` (sin `NODE_PATH` no encuentra
-Playwright) → 32/32. La rama `rediseno-sala-nocturna` ya está fusionada; se puede borrar.
+Playwright) → 32/32. La rama `rediseno-sala-nocturna` se fusionó y se borró.
 
 **Siguiente sesión — empezar por aquí:**
 1. Respuestas de Marcos a las 9 preguntas (ver Pendientes) → `mirai:ventas` arma la ficha de servicios del anexo A

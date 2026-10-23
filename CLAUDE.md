@@ -31,7 +31,7 @@ agencia Mirai Digital Group (Fase 1 del plan de negocios de Frank).
    Hubo un intento de pasar el sitio a paleta clara (crema) y **se revirtió** —
    el cliente prefiere el oscuro. No la vuelvas a cambiar sin pedirlo.
    Sobre esa paleta, desde el 23/10/2026 la dirección de arte es la **A «La sala nocturna»** con el constructor
-   «Tu reloj» (rama `rediseno-sala-nocturna`, pendiente de aprobación de Frank). Prototipos en `../propuestas-diseno-2026-10/`.
+   «Tu reloj», aprobada por Frank y publicada el 23/10/2026 (`0d6020d`). Prototipos en `../propuestas-diseno-2026-10/`.
 
 4. **Nada de `fetch()` para cargar assets locales.** Rompe al abrir el sitio con
    doble clic (`file://`) y deja el hero vacío. Ya pasó una vez. Asigna los `src`
