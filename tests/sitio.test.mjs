@@ -170,6 +170,10 @@ console.log("\nPortada · escritorio 1440");
 console.log("\nMóvil 375");
 for (const url of ["index.html", "catalogo.html"]) {
   const { pagina, contexto, registro } = await abrir(url, { viewport: { width: 375, height: 812 } });
+  await reposo(pagina, 1200);
+  // Antes de bajar: los reels todavía son marcadores (así se coló un ancho de 2270 px)
+  const anchoInicial = await pagina.evaluate(() => document.documentElement.scrollWidth);
+  await prueba(`M0 ${url}: 375 exactos al abrir, sin bajar`, () => afirmar(anchoInicial === 375, "scrollWidth " + anchoInicial));
   await pagina.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } });
   await reposo(pagina, 1200);
   await prueba(`M1 ${url}: el documento mide 375 de ancho exactos`, async () => {

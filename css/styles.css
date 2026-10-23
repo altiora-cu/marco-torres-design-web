@@ -46,6 +46,7 @@ h2 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
 em { font-style: italic; color: var(--gold-soft); }
 .ceja { font-size: .8125rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
 body.sin-scroll { overflow: hidden; }
+[id] { scroll-margin-top: 5.5rem; }                 /* los anclajes no quedan debajo de la isla */
 
 /* ---------- Botones ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .7rem; min-height: 48px; padding: .85rem 1.5rem; border-radius: 999px;
@@ -113,7 +114,7 @@ body.sin-scroll { overflow: hidden; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
 @keyframes entra { from { opacity: 0; transform: translateY(18px); } }
 @media (max-width: 760px) {
-  .hero { padding-bottom: 2.25rem; }
+  .hero { padding-bottom: 5.5rem; }            /* deja libre el botón flotante de WhatsApp */
   .hero__velo { background: linear-gradient(180deg, rgba(13,11,9,.55) 0%, rgba(13,11,9,.08) 22%, rgba(13,11,9,.72) 48%, rgba(13,11,9,.97) 100%); }
   .hero__ctas .btn { flex: 1 1 100%; }
 }
@@ -129,7 +130,8 @@ body.sin-scroll { overflow: hidden; }
 .obra { position: relative; flex: 0 0 auto; width: clamp(240px, 26vw, 360px); transform-style: preserve-3d; }
 .obra__boton { display: block; width: 100%; text-align: left; transform-style: preserve-3d; }
 .obra__luz { position: absolute; left: 50%; top: -3rem; width: 160%; height: 120%; transform: translateX(-50%); pointer-events: none;
-  background: radial-gradient(42% 55% at 50% 0%, rgba(255, 226, 170, .16), transparent 70%); opacity: .5; transition: opacity .6s var(--ease); }
+  background: radial-gradient(42% 55% at 50% 0%, rgba(255, 226, 170, .16), transparent 70%); opacity: .5; transition: opacity .6s var(--ease);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%); mask-image: linear-gradient(180deg, transparent, #000 30%); }
 .obra.activa .obra__luz, .obra:hover .obra__luz { opacity: 1; }
 .obra figure { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-3);
   box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9), 0 0 0 1px rgba(201, 164, 92, .16); }
@@ -247,7 +249,8 @@ textarea:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 .redes__pared { position: relative; min-width: 0; }
 .carril { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad);
   padding: 1rem var(--pad) 1.5rem; scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
-.reel { flex: 0 0 min(calc(100vw - 2.5rem), 360px); min-width: 0; scroll-snap-align: start; }
+/* position: relative para que los .sr-only del reel no se escapen del carril y ensanchen la página */
+.reel { position: relative; flex: 0 0 min(calc(100vw - 2.5rem), 360px); min-width: 0; scroll-snap-align: start; }
 .reel:nth-child(even) { margin-top: 2.5rem; }          /* colgados a distinta altura, como en un salón */
 .reel__marco { padding: 10px; background: var(--papel);
   box-shadow: inset 0 0 0 1px rgba(201, 164, 92, .55), 0 0 0 6px #1a150f, 0 0 0 7px rgba(201, 164, 92, .35), 0 40px 60px -30px rgba(0, 0, 0, .9); }
@@ -324,7 +327,10 @@ textarea:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
 @media (max-width: 520px) { .coleccion { grid-template-columns: minmax(0, 1fr); } .coleccion .obra:nth-child(even) { margin-top: 0; } }
 
 /* ---------- Entradas al hacer scroll (solo con JS y movimiento permitido) ---------- */
-.js-mov [data-aparece], .js-mov .obra { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease) var(--d, 0ms), transform .9s var(--ease) var(--d, 0ms); }
+.js-mov [data-aparece] { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease) var(--d, 0ms), transform .9s var(--ease) var(--d, 0ms); }
+/* Las obras solo se encienden (sin desplazamiento): un transform aquí, dentro del contexto 3D,
+   hacía que Chrome contara el carril entero en el ancho de la página (2270 px a 375) */
+.js-mov .obra { opacity: 0; transition: opacity .9s var(--ease) var(--d, 0ms); }
 .js-mov [data-aparece].visto, .js-mov .obra.visto { opacity: 1; transform: none; }
 .js-mov .sala.con-pin .obra { opacity: 1; transform: none; }   /* en el pasillo fijado manda GSAP */
 

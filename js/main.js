@@ -85,7 +85,9 @@
     }, { once: true });
     v.addEventListener("loadeddata", () => { v.classList.add("lista"); const p = v.play(); if (p && p.catch) p.catch(() => {}); }, { once: true });
     v.addEventListener("error", () => v.classList.remove("lista"));
+    v.preload = "auto";                              // con preload="none" el navegador no lo pediría nunca
     v.src = src;
+    v.load();
   }
 
   /* ---------- La sala (portada) ---------- */
