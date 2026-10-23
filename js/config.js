@@ -160,7 +160,6 @@ window.SITE_CONFIG = {
 
   /* ---------- PÁGINA DEL CATÁLOGO ---------- */
   coleccion: {
-    eyebrow: "La sala completa",
     titulo: "La colección",
     texto: "Piezas únicas, hechas a mano. Toca una para verla de cerca.",
     volver: "Volver a la portada",

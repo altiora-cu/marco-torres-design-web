@@ -97,7 +97,8 @@
   function obraHtml(p, i, eager) {
     return `<li class="obra" data-i="${i}">
       <span class="obra__luz" aria-hidden="true"></span>
-      <button class="obra__boton" type="button" data-abrir="${i}" aria-label="${esc((C.vitrina && C.vitrina.abrir) || "")} ${esc(p.nombre)}">
+      <button class="obra__boton" type="button" data-abrir="${i}">
+        <span class="sr-only">${esc((C.vitrina && C.vitrina.abrir) || "")}</span>
         <figure>${fotoPieza(p, i, eager)}<span class="obra__velo"></span></figure>
         <span class="ficha">
           <span class="ficha__serie">${esc(p.categoria)}</span>
